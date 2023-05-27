@@ -9,5 +9,5 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.chenifargan:MatchTest-Library:Tag'
+	        implementation 'com.github.chenifargan:MatchTest-Library:0.0.0.1'
 	}
