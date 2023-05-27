@@ -32,22 +32,25 @@ public class MatchController {
             public void onResponse(Call<Double> call, Response<Double> response) {
                 if(!response.isSuccessful()){
                     Log.d("TAG", "onResponse: "+response.code());
+                    mClickListener.onMatchFaild(response.message());
                 }
-
-            mClickListener.onMatchReturn(response.body());
-              //  Log.d("TAG", " "+response.body());
-
+                else {
+                    mClickListener.onMatchReturn(response.body());
+                    //  Log.d("TAG", " "+response.body());
+                }
             }
 
             @Override
             public void onFailure(Call<Double> call, Throwable t) {
-                Log.d("TAG", "onFailure: ");
+                    Log.d("TAG", "onFailure: ");
             }
         });
 
     }
     public  interface onRecordEventListener{
         void onMatchReturn(double val);
+        void onMatchFaild(String mess);
     }
+
 
 }
